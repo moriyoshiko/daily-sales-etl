@@ -55,15 +55,15 @@ daily-sales-etl/
 ```
 
 ## サンプルデータ生成
--PostgreSQL の generate_series を用いて100~1000件のランダムデータを生成可能。
--ローカル環境でもETL動作を再現できる。
+- PostgreSQL の generate_series を用いて100~1000件のランダムデータを生成可能。
+- ローカル環境でもETL動作を再現できる。
 
 ## 実行手順
 1. `.env`を作成しDB接続情報を設定
 2.依存ライブラリをインストール
 ```bash
 pip install -r requirements.txt
-
+```
 ## 実行例
 ```bash
 python -m etl.main --date 2025-12-01
