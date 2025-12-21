@@ -24,7 +24,8 @@ graph TD
     C --> D[ETL 実行<br>daily_sales 集計]
     D --> E[分析用集計結果テーブル]
 ```
-※ raw_orders.created_at は「業務上の発生日」であり、分析DBに取り込まれた時刻とは一致しない。
+※ raw_orders.created_at は「業務上の発生日」であり、
+分析DBに取り込まれた時刻とは一致しない。
 
 ## テーブル構成
 - raw_orders：生データ
