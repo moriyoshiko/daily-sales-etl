@@ -41,6 +41,7 @@
 - プレースホルダを用いた安全なSQL実行
 
 ## ディレクトリ構成
+```text
 daily-sales-etl/
 ├── etl/
 │   ├── main.py        # CLI・日付ループ制御
