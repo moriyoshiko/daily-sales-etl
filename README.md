@@ -52,6 +52,7 @@ daily-sales-etl/
 │   └── daily_sales_etl.sql
 ├── requirements.txt
 └── README.md
+```text
 
 ## サンプルデータ生成
 -PostgreSQL の generate_series を用いて100~1000件のランダムデータを生成可能。
