@@ -59,8 +59,7 @@ daily-sales-etl/
 - ローカル環境でもETL動作を再現できる。
 
 ## 実行手順
-1. `.env`を作成しDB接続情報を設定   
-2.依存ライブラリをインストール
+1. `.env`を作成しDB接続情報を設定  2.依存ライブラリをインストール
 ```bash
 pip install -r requirements.txt
 ```
