@@ -64,7 +64,7 @@ daily-sales-etl/
 ```bash
 pip install -r requirements.txt
 ```
-## 実行例,,,,,,,,,
+## 実行例
 ```bash
 python -m etl.main --date 2025-12-01
 python -m etl.main --start-date 2025-12-01 --end-date 2025-12-03
