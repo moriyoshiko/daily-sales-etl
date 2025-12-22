@@ -16,22 +16,19 @@ SELECT
     NOW() AS updated_at
 FROM generate_series(1, 100) AS gs;
 
+---遅延到着データ（12/1発生 → 12/2登録）
+INSERT INTO raw_orders (
+     order_id, 
+     amount, 
+     created_at, 
+     updated_at
+)
+VALUES
+(1001, 1000, '2025-12-01 22:00:00', NOW());
 
--- -- 通常データ（2025-12-01）
--- INSERT INTO raw_orders VALUES
--- (1, 1000, '2025-12-01 10:00:00', '2025-12-01 10:00:00'),
--- (2, 2000, '2025-12-01 15:30:00', '2025-12-01 15:30:00');
-
--- -- 通常データ（2025-12-02）
--- INSERT INTO raw_orders VALUES
--- (3, 1500, '2025-12-02 11:00:00', '2025-12-02 11:00:00');
-
--- 遅延到着データ（2/1発生 → 2/3登録）
--- INSERT INTO raw_orders VALUES
--- (4, 500, '2025-12-01 22:00:00', '2025-12-03 09:00:00');
-
--- -- 修正データ（2/2 金額修正）
--- INSERT INTO raw_orders VALUES
--- (5, 3000, '2025-12-02 18:00:00', '2025-12-04 08:00:00');
+---- 修正データ（12/2 金額修正）
+UPDATE raw_orders
+SET amount = 800, updated_at = NOW()
+WHERE order_id = 1001;
 
 
