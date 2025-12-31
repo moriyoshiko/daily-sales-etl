@@ -1,0 +1,31 @@
+2025-12-30 07:17:47,696 [ERROR] ETL aborted
+Traceback (most recent call last):
+  File "/Users/moriyoshiko/Desktop/samples/selfpy/daily-sales-etl/etl/sql.py", line 14, in run_range
+    run_daily_sales(conn, d)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/moriyoshiko/Desktop/samples/selfpy/daily-sales-etl/etl/daily_sales.py", line 26, in run_daily_sales
+    x = 1 / 0
+        ~~^~~
+ZeroDivisionError: division by zero
+2025-12-30 07:22:50,598 [ERROR] ETL failed for date=2025-12-02, error=relation "daily_sales_xxx" does not exist
+LINE 2:                     INSERT INTO daily_sales_xxx (sale_date, ...
+                                        ^
+
+2025-12-30 07:22:50,598 [ERROR] ETL aborted
+Traceback (most recent call last):
+  File "/Users/moriyoshiko/Desktop/samples/selfpy/daily-sales-etl/etl/sql.py", line 14, in run_range
+    run_daily_sales(conn, d)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/moriyoshiko/Desktop/samples/selfpy/daily-sales-etl/etl/daily_sales.py", line 20, in run_daily_sales
+    cur.execute("""
+    ~~~~~~~~~~~^^^^
+        INSERT INTO daily_sales_xxx (sale_date, sales_amount)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        VALUES (%s, %s)
+        ^^^^^^^^^^^^^^^
+    """, (target_date, 9999))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "daily_sales_xxx" does not exist
+LINE 2:                     INSERT INTO daily_sales_xxx (sale_date, ...
+                                        ^
+
