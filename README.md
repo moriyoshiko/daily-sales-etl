@@ -32,21 +32,10 @@
 ## ETLフロー概要
 ```mermaid
 graph TD
-    A[業務システム<br>注文発生] 
-      -->|数分〜数時間〜翌日| 
-    B[中間システム<br>ログ・連携・キュー]
-
-    B 
-      -->|定期バッチ| 
-    C[分析DB<br>raw_orders]
-
-    C 
-      -->|日次ETL<br>再実行可能| 
-    D[ETL処理<br>DELETE + INSERT]
-
-    D 
-      --> 
-    E[分析用集計テーブル<br>daily_sales]
+    A[業務システム<br>注文発生] -->|数分〜数時間〜翌日| B[中間システム<br>ログ・連携・キュー]
+    B -->|定期バッチ| C[分析DB<br>raw_orders]
+    C -->|日次ETL<br>再実行可能| D[ETL処理<br>DELETE + INSERT]
+    D --> E[分析用集計テーブル<br>daily_sales]
 ```
 ※ raw_orders.created_at は業務上の発生日を示す。
 ※ 分析DBへの取り込みは遅延する可能性があるため、ETLは日付単位で再実行可能な設計とし、遅延・修正データを再計算で吸収する。
