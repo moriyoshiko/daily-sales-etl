@@ -15,7 +15,7 @@ INSERT INTO daily_sales (
 )
 SELECT
     date_trunc('day', created_at)::date AS sale_date,
-    SUM(amount) AS sales_amount,
+    SUM(COALESCE(amount, 0)) AS sales_amount,
     NOW() AS processed_at
 FROM raw_orders
 WHERE created_at >= %(target_date)s
